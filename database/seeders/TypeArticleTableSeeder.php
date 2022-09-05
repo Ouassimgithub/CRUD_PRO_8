@@ -13,7 +13,7 @@ class TypeArticleTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('types_articles')->insert([
+        DB::table('type_articles')->insert([
             ['nom' =>"Immobilier"] ,
             ['nom' => "Salle"],
             ['nom' =>"Appareil Electronique"] ,
