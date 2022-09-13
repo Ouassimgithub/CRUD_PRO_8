@@ -11,6 +11,7 @@
             </a>
           </li>
   {{-- manager --}}
+   @can ("manager")
 <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -34,12 +35,13 @@
               </li>
             </ul>
           </li>
+               @endcan
+     
 
           {{-- admin --}}
-           <li
-            class="nav-item"
-          >
-            <a href="#" class="nav-link ">
+          @can("admin")
+           <li  class="nav-item">
+            <a href="#" class="nav-link active ">
               <i class=" nav-icon fas fa-user-shield"></i>
               <p>
                 Habilitations
@@ -49,8 +51,8 @@
             <ul class="nav nav-treeview">
               <li class="nav-item ">
                 <a
-                href=""
-                class="nav-link "
+                href="{{route ('admin.habilitations.users.index')}}"
+                class="nav-link active"
                 >
                   <i class=" nav-icon fas fa-users-cog"></i>
                   <p>Utilisateurs</p>
@@ -64,6 +66,7 @@
               </li>
             </ul>
           </li>
+        
 
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -94,9 +97,9 @@
               </li>
             </ul>
           </li>
-
+             @endcan
           {{-- employe --}}
-
+           @can("employe")
           <li class="nav-header">LOCATION</li>
           <li class="nav-item">
             <a href="" class="nav-link ">
@@ -124,5 +127,6 @@
               </p>
             </a>
           </li>
+            @endcan
 </ul>
 </nav>

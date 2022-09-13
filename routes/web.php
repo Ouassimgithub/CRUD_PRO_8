@@ -33,3 +33,17 @@ Auth::routes(); //generer ses propres pages de route (de cnx , d'enregistrement.
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/encrypt', [App\Http\Controllers\EncryptionController::class, 'encrypt'])->name('encr');
 // Route::get('/decrypt', [App\Http\Controllers\EncryptionController::class, 'decrypt'])->name('decr');
+// Route::get('/habilitations/utilisateurs', [App\Http\Controllers\UserController::class, 'index'])
+// ->name('utilisateurs')->middleware('auth.admin');
+
+Route::group([
+    "middleware" => ["auth", "auth.admin"],
+    "as" => "admin."
+], function (){
+    Route::group([
+        "prefix" => "habilitations",
+        "as" => "habilitations."
+    ], function(){
+        Route::get("/utilisateurs", [App\Http\Controllers\UserController::class, "index"])->name('users.index'); 
+    });  //admin.habilitation.users.index : route
+});
