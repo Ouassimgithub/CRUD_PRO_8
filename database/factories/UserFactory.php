@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -13,11 +14,12 @@ class UserFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    { 
         return [
             "nom" => $this->faker->lastName,
             "prenom" => $this->faker->firstName,
-            "sex" => array_rand(["F","H"],1),
+             
+            "sex" => array_rand(["H" , "F"], 1),
             "telephone1" => $this->faker->phoneNumber,
             "telephone2" => $this->faker->phoneNumber,
             "pieceIdentite" => array_rand(["CNI","PASSPORT","Permis de conduite", 1]),

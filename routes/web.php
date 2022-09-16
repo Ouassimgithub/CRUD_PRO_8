@@ -3,6 +3,7 @@ use App\Models\Article;
 use App\Models\TypeArticle;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Livewire\Utilisateurs;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,6 @@ Route::group([
         "prefix" => "habilitations",
         "as" => "habilitations."
     ], function(){
-        Route::get("/utilisateurs", [App\Http\Controllers\UserController::class, "index"])->name('users.index'); 
-    });  //admin.habilitation.users.index : route
+        Route::get("/utilisateurs", Utilisateurs::class)->name('users.index'); 
+    });  //admin.habilitation.users.index : route name
 });

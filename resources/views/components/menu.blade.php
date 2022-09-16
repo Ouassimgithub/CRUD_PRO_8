@@ -3,7 +3,7 @@
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
  {{-- Accueil --}}
  <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('home')}}" class="nav-link {{ setMenuActive('home')}}">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Accueil
@@ -40,8 +40,8 @@
 
           {{-- admin --}}
           @can("admin")
-           <li  class="nav-item">
-            <a href="#" class="nav-link active ">
+           <li  class="nav-item {{setMenuStyle('admin.habilitations.', 'menu-open')}}" >
+            <a href="#" class="nav-link {{setMenuStyle('admin.habilitations.','active')}}"  >
               <i class=" nav-icon fas fa-user-shield"></i>
               <p>
                 Habilitations
@@ -52,7 +52,7 @@
               <li class="nav-item ">
                 <a
                 href="{{route ('admin.habilitations.users.index')}}"
-                class="nav-link active"
+                class="nav-link {{ setMenuActive('admin.habilitations.users.index')}}"
                 >
                   <i class=" nav-icon fas fa-users-cog"></i>
                   <p>Utilisateurs</p>

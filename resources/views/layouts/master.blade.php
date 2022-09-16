@@ -47,7 +47,8 @@
 <div class="content">
 <div class="container-fluid">
 
- @yield("contenu") 
+ @yield("contenu")
+ 
   {{-- Afficher le contenu qui arrive du welcome  --}}
 
 
